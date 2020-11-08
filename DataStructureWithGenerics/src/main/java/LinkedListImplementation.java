@@ -32,6 +32,12 @@ public class LinkedListImplementation {
 		}
 	}
 	
+	public void insert(NodeInf currentNode, NodeInf newNode) {
+		NodeInf tempNode = currentNode.getNext();
+		currentNode.setNext(newNode);
+		newNode.setNext(tempNode);
+	}
+	
 	public void printNodes() {
 		StringBuffer nodes = new StringBuffer("Nodes are: ");
 		NodeInf tempNode = head;

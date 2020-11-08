@@ -69,4 +69,39 @@ public class LinkedListNodeTest {
 				linkedList.tail.equals(firstNode);
 		Assert.assertFalse(result);
 	}
+	
+	//UC-4
+	@Test
+	public void givenThreeNumbersWhenInsertingBetweenShouldPassLinkedListResult() {
+		LinkedListNode<Integer> firstNode = new LinkedListNode<>(56);
+		LinkedListNode<Integer> secondNode = new LinkedListNode<>(30);
+		LinkedListNode<Integer> thirdNode = new LinkedListNode<>(70);
+
+		LinkedListImplementation linkedList = new LinkedListImplementation();
+		linkedList.append(firstNode);
+		linkedList.append(thirdNode);
+		linkedList.insert(firstNode, secondNode);
+		linkedList.printNodes();
+		boolean result = linkedList.head.equals(firstNode) &&
+				linkedList.head.getNext().equals(secondNode) &&
+				linkedList.tail.equals(thirdNode);
+		Assert.assertTrue(result);
+	}
+	
+	@Test
+	public void givenThreeNumbersWhenInsertingBetweenShouldNotPassLinkedListResult() {
+		LinkedListNode<Integer> firstNode = new LinkedListNode<>(56);
+		LinkedListNode<Integer> secondNode = new LinkedListNode<>(30);
+		LinkedListNode<Integer> thirdNode = new LinkedListNode<>(70);
+
+		LinkedListImplementation linkedList = new LinkedListImplementation();
+		linkedList.append(firstNode);
+		linkedList.append(thirdNode);
+		linkedList.insert(firstNode, secondNode);
+		linkedList.printNodes();
+		boolean result = linkedList.head.equals(thirdNode) &&
+				linkedList.head.getNext().equals(secondNode) &&
+				linkedList.tail.equals(firstNode);
+		Assert.assertFalse(result);
+	}
 }
