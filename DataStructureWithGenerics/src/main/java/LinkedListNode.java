@@ -1,25 +1,29 @@
-public class LinkedListNode<K> {
+public class LinkedListNode<K> implements NodeInf<K> {
 	private K key;
-	private LinkedListNode next;
+	private NodeInf next;
 
 	LinkedListNode(K key){
-		this.key = null;
+		this.key = key;
 		this.next = null;
 	}
 
+	@Override
 	public K getKey() {
 		return key;
 	}
 
+	@Override
 	public void setKey(K key) {
 		this.key = key;
 	}
 
-	public LinkedListNode getNext() {
+	@Override
+	public NodeInf getNext() {
 		return next;
 	}
 
-	public void setNext(LinkedListNode next) {
+	@Override
+	public void setNext(NodeInf next) {
 		this.next = next;
 	}
 }
