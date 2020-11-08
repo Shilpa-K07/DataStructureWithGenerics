@@ -38,6 +38,12 @@ public class LinkedListImplementation {
 		newNode.setNext(tempNode);
 	}
 	
+	public NodeInf pop() {
+		NodeInf tempNode = this.head;
+		this.head = head.getNext();
+		return tempNode;
+	}
+	
 	public void printNodes() {
 		StringBuffer nodes = new StringBuffer("Nodes are: ");
 		NodeInf tempNode = head;

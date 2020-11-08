@@ -104,4 +104,35 @@ public class LinkedListNodeTest {
 				linkedList.tail.equals(firstNode);
 		Assert.assertFalse(result);
 	}
+	
+	//UC-6
+	@Test
+	public void givenThreeNumbersWhenPopingShouldReturnFirstElement() {
+		LinkedListNode<Integer> firstNode = new LinkedListNode<>(56);
+		LinkedListNode<Integer> secondNode = new LinkedListNode<>(30);
+		LinkedListNode<Integer> thirdNode = new LinkedListNode<>(70);
+
+		LinkedListImplementation linkedList = new LinkedListImplementation();
+		linkedList.append(firstNode);
+		linkedList.append(secondNode);
+		linkedList.append(thirdNode);
+		NodeInf resultNode = linkedList.pop();
+		linkedList.printNodes();
+		Assert.assertEquals(firstNode, resultNode);
+	}
+	
+	@Test
+	public void givenThreeNumbersWhenPopingShouldNotReturnFirstElement() {
+		LinkedListNode<Integer> firstNode = new LinkedListNode<>(56);
+		LinkedListNode<Integer> secondNode = new LinkedListNode<>(30);
+		LinkedListNode<Integer> thirdNode = new LinkedListNode<>(70);
+
+		LinkedListImplementation linkedList = new LinkedListImplementation();
+		linkedList.append(firstNode);
+		linkedList.append(secondNode);
+		linkedList.append(thirdNode);
+		NodeInf resultNode = linkedList.pop();
+		linkedList.printNodes();
+		Assert.assertNotEquals(secondNode, resultNode);
+	}
 }
