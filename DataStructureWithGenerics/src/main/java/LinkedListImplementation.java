@@ -44,6 +44,16 @@ public class LinkedListImplementation {
 		return tempNode;
 	}
 	
+	public NodeInf popLast() {
+		NodeInf tempNode = head;
+		while(!tempNode.getNext().equals(tail)) {
+			tempNode = tempNode.getNext();
+		}
+		NodeInf resultNode = tempNode.getNext();
+		tempNode.setNext(null);
+		return resultNode;
+	}
+	
 	public void printNodes() {
 		StringBuffer nodes = new StringBuffer("Nodes are: ");
 		NodeInf tempNode = head;
