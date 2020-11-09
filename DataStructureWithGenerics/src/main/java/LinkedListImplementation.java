@@ -66,6 +66,21 @@ public class LinkedListImplementation {
 		return null;
 	}
 	
+	public void delete(NodeInf node) {
+		node.setKey(node.getNext().getKey());    
+        node.setNext(node.getNext().getNext());
+	}
+	
+	public int size() {
+		int sizeCount = 0;
+		NodeInf currentNode = head;
+		while(currentNode != null) {
+			currentNode = currentNode.getNext();
+			sizeCount++;
+		}
+		return sizeCount;
+	}
+	
 	public void printNodes() {
 		StringBuffer nodes = new StringBuffer("Nodes are: ");
 		NodeInf tempNode = head;

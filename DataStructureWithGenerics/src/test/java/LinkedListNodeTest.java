@@ -230,4 +230,43 @@ public class LinkedListNodeTest {
 		linkedList.printNodes();
 		Assert.assertFalse(secondNode.getNext().equals(fourthNode));
 	}
+	
+	//UC-9
+	@Test
+	public void givenThreeNumbersAfterDeletingOneElementShouldGiveSizeLessThanActual() {
+		LinkedListNode<Integer> firstNode = new LinkedListNode<>(56);
+		LinkedListNode<Integer> secondNode = new LinkedListNode<>(30);
+		LinkedListNode<Integer> thirdNode = new LinkedListNode<>(40);
+		LinkedListNode<Integer> fourthNode = new LinkedListNode<>(70);
+
+		LinkedListImplementation linkedList = new LinkedListImplementation();
+		linkedList.append(firstNode);
+		linkedList.append(secondNode);
+		linkedList.append(thirdNode);
+		linkedList.append(fourthNode);
+		NodeInf resultNode = linkedList.search(thirdNode);
+		linkedList.delete(resultNode);
+		int size = linkedList.size();
+		linkedList.printNodes();
+		Assert.assertEquals(3, size);
+	}
+	
+	@Test
+	public void givenThreeNumbersAfterDeletingOneElementShouldActualSize() {
+		LinkedListNode<Integer> firstNode = new LinkedListNode<>(56);
+		LinkedListNode<Integer> secondNode = new LinkedListNode<>(30);
+		LinkedListNode<Integer> thirdNode = new LinkedListNode<>(40);
+		LinkedListNode<Integer> fourthNode = new LinkedListNode<>(70);
+
+		LinkedListImplementation linkedList = new LinkedListImplementation();
+		linkedList.append(firstNode);
+		linkedList.append(secondNode);
+		linkedList.append(thirdNode);
+		linkedList.append(fourthNode);
+		NodeInf resultNode = linkedList.search(thirdNode);
+		linkedList.delete(resultNode);
+		int size = linkedList.size();
+		linkedList.printNodes();
+		Assert.assertNotEquals(4, size);
+	}
 }
