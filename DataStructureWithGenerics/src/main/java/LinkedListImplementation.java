@@ -53,6 +53,18 @@ public class LinkedListImplementation {
 		tempNode.setNext(null);
 		return resultNode;
 	}
+
+	public NodeInf search(NodeInf node) {
+		NodeInf tempNode = head;
+		while(!tempNode.getNext().equals(tail)) {
+			tempNode = tempNode.getNext();
+			if(tempNode.getKey().equals(node.getKey()))
+				return tempNode;
+		}
+		if(this.tail.getKey().equals(node.getKey()))
+			return this.tail;
+		return null;
+	}
 	
 	public void printNodes() {
 		StringBuffer nodes = new StringBuffer("Nodes are: ");

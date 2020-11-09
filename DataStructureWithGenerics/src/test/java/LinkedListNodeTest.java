@@ -166,5 +166,33 @@ public class LinkedListNodeTest {
 		linkedList.printNodes();
 		Assert.assertNotEquals(firstNode, resultNode);
 	}
-}
+	
+	//UC-7
+	@Test
+	public void givenThreeNumbersWhenSeachingSecondShouldReturnSame() {
+		LinkedListNode<Integer> firstNode = new LinkedListNode<>(56);
+		LinkedListNode<Integer> secondNode = new LinkedListNode<>(30);
+		LinkedListNode<Integer> thirdNode = new LinkedListNode<>(70);
 
+		LinkedListImplementation linkedList = new LinkedListImplementation();
+		linkedList.append(firstNode);
+		linkedList.append(secondNode);
+		linkedList.append(thirdNode);
+		NodeInf resultNode = linkedList.search(secondNode);
+		Assert.assertEquals(secondNode, resultNode);
+	}
+	
+	@Test
+	public void givenThreeNumbersWhenSeachingSecondShouldNotReturnSame() {
+		LinkedListNode<Integer> firstNode = new LinkedListNode<>(56);
+		LinkedListNode<Integer> secondNode = new LinkedListNode<>(30);
+		LinkedListNode<Integer> thirdNode = new LinkedListNode<>(70);
+
+		LinkedListImplementation linkedList = new LinkedListImplementation();
+		linkedList.append(firstNode);
+		linkedList.append(secondNode);
+		linkedList.append(thirdNode);
+		NodeInf resultNode = linkedList.search(secondNode);
+		Assert.assertNotEquals(thirdNode, resultNode);
+	}
+}
