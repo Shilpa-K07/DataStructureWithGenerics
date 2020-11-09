@@ -195,4 +195,39 @@ public class LinkedListNodeTest {
 		NodeInf resultNode = linkedList.search(secondNode);
 		Assert.assertNotEquals(thirdNode, resultNode);
 	}
+	
+	//UC-8
+	@Test
+	public void givenThreeNumbersWhenInsertingInBetweenShouldPassTest() {
+		LinkedListNode<Integer> firstNode = new LinkedListNode<>(56);
+		LinkedListNode<Integer> secondNode = new LinkedListNode<>(30);
+		LinkedListNode<Integer> thirdNode = new LinkedListNode<>(40);
+		LinkedListNode<Integer> fourthNode = new LinkedListNode<>(70);
+
+		LinkedListImplementation linkedList = new LinkedListImplementation();
+		linkedList.append(firstNode);
+		linkedList.append(secondNode);
+		linkedList.append(fourthNode);
+		NodeInf resultNode = linkedList.search(secondNode);
+		linkedList.insert(resultNode, thirdNode);
+		linkedList.printNodes();
+		Assert.assertTrue(secondNode.getNext().equals(thirdNode));
+	}
+	
+	@Test
+	public void givenThreeNumbersWhenInsertingInBetweenShouldNotPassTest() {
+		LinkedListNode<Integer> firstNode = new LinkedListNode<>(56);
+		LinkedListNode<Integer> secondNode = new LinkedListNode<>(30);
+		LinkedListNode<Integer> thirdNode = new LinkedListNode<>(40);
+		LinkedListNode<Integer> fourthNode = new LinkedListNode<>(70);
+
+		LinkedListImplementation linkedList = new LinkedListImplementation();
+		linkedList.append(firstNode);
+		linkedList.append(secondNode);
+		linkedList.append(fourthNode);
+		NodeInf resultNode = linkedList.search(secondNode);
+		linkedList.insert(resultNode, thirdNode);
+		linkedList.printNodes();
+		Assert.assertFalse(secondNode.getNext().equals(fourthNode));
+	}
 }
